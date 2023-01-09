@@ -9,6 +9,9 @@ def calculator():
         '4': 'Dividir',
         '5': 'Raíz n',
         '6': 'Exponente n',
+        '7': 'Seno',
+        '8': 'Coseno',
+        '9': 'Tangente',
         '0': 'Salir'
     }
 
@@ -24,7 +27,7 @@ def calculator():
             print(f'{key}. {menu[key]}')
 
         # Request operation
-        option = input("\n¿Qué operación deseas realizar? (1 / 2 / 3/ 4 / 5 / 6 / 0): ")
+        option = input("\n¿Qué operación deseas realizar? (1 / 2 / 3/ 4 / 5 / 6 / 7 / 8 / 9 / 0): ")
 
         # Validate option 0, close app
         if option == '0':
@@ -44,6 +47,12 @@ def calculator():
                 print("RAIZ CUADRADA > El resultado es: ", raiz())
             elif option == '6':
                 print("EXPONENCIAL > El resultado es: ", exponencial())
+            elif option == '7':
+                print("SENO > El resultado es: ", seno())
+            elif option == '8':
+                print("COSENO > El resultado es: ", coseno())
+            elif option == '9':
+                print("TANGENTE > El resultado es: ", tangente())
         else:
             print ("Opción no valida.")
         
@@ -106,9 +115,33 @@ def exponencial():
     except ValueError:
         print("Entrada no valida")
 
+def seno():
+    # Validate float number
+    try:
+        a = float(input("\nIngresa los grados: "))
+        return np.sin(np.radians(a))
+    except ValueError:
+        print("Entrada no valida")
+
+def coseno():
+    # Validate float number
+    try:
+        a = float(input("\nIngresa los grados: "))
+        return np.cos(np.radians(a))
+    except ValueError:
+        print("Entrada no valida")
+
+def tangente():
+    # Validate float number
+    try:
+        a = float(input("\nIngresa los grados: "))
+        return np.tan(np.radians(a))
+    except ValueError:
+        print("Entrada no valida")
+
 def again():
     # Ask if need to do other operation and validate response
-    calc_again = input("\n¿Deseas realizar otra operación? (s / n): ")
+    calc_again = input("\n¿Deseas regresar al menú? (s / n): ")
 
     # Validate response
     if calc_again.lower() == 's':
